@@ -156,10 +156,10 @@ std::tuple<bool, HWND, HDC> InitRenderingContext(HINSTANCE instance, int cmdShow
             0
         };
 
-    HGLRC renderingContext = wglCreateContextAttribsARB(dc, nullptr, contextAttribs);
-    if (renderingContext == nullptr) {
-        return ircFail("wglCreateContextAttribsARB failed.");
-    }
+HGLRC renderingContext = wglCreateContextAttribsARB(dc, nullptr, contextAttribs);
+if (renderingContext == nullptr) {
+    return ircFail("wglCreateContextAttribsARB failed.");
+}
 
     // подчищаем за временным окно и временным контекстом отрисовки
     wglMakeCurrent(nullptr, nullptr);

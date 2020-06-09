@@ -7,6 +7,6 @@ add_executable(HelloOpenGL WIN32 src/main.cpp)
 
 target_include_directories(HelloOpenGL PRIVATE thirdparty/include)
 
-TARGET_LINK_LIBRARIES(HelloOpenGL opengl32 Glu32)
+TARGET_LINK_LIBRARIES(HelloOpenGL opengl32)
 
 file(COPY data DESTINATION ${CMAKE_BINARY_DIR})

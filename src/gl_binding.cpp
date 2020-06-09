@@ -1,5 +1,4 @@
 #include <GL/gl.h>
-#include <GL/glu.h>
 #include "gl/glext.h"
 #include "gl/wglext.h"
 
@@ -39,181 +38,156 @@ bool InitGLBindings() {
             wglGetProcAddress("wglChoosePixelFormatARB"));
 
     if (wglChoosePixelFormatARB == nullptr) {
-        fail("Getting wglGetProcAddress failed.");
-        return false;
+        return fail("Getting wglGetProcAddress failed.");
     }
 
     wglCreateContextAttribsARB = reinterpret_cast<PFNWGLCREATECONTEXTATTRIBSARBPROC>(
             wglGetProcAddress("wglCreateContextAttribsARB"));
 
     if (wglCreateContextAttribsARB == nullptr) {
-        fail("Getting wglGetProcAddress failed.");
-        return false;
+        return fail("Getting wglGetProcAddress failed.");
     }
 
     glCreateShader = reinterpret_cast<PFNGLCREATESHADERPROC>(wglGetProcAddress("glCreateShader"));
 
     if (glCreateShader == nullptr) {
-        fail("glCreateShader failed.");
-        return false;
+        return fail("glCreateShader failed.");
     }
 
     glShaderSource = reinterpret_cast<PFNGLSHADERSOURCEPROC>(wglGetProcAddress("glShaderSource"));
 
     if (glShaderSource == nullptr) {
-        fail("glShaderSource failed.");
-        return false;
+        return fail("glShaderSource failed.");
     }
 
     glCompileShader = reinterpret_cast<PFNGLCOMPILESHADERPROC>(wglGetProcAddress("glCompileShader"));
 
     if (glCompileShader == nullptr) {
-        fail("glCompileShader failed.");
-        return false;
+        return fail("glCompileShader failed.");
     }
 
     glGetShaderiv = reinterpret_cast<PFNGLGETSHADERIVPROC>(wglGetProcAddress("glGetShaderiv"));
 
     if (glGetShaderiv == nullptr) {
-        fail("glGetShaderiv failed.");
-        return false;
+        return fail("glGetShaderiv failed.");
     }
 
     glGetShaderInfoLog = reinterpret_cast<PFNGLGETSHADERINFOLOGPROC>(
             wglGetProcAddress("glGetShaderInfoLog"));
 
     if (glGetShaderInfoLog == nullptr) {
-        fail("glGetShaderInfoLog failed.");
-        return false;
+        return fail("glGetShaderInfoLog failed.");
     }
 
     glDeleteShader = reinterpret_cast<PFNGLDELETESHADERPROC>(wglGetProcAddress("glDeleteShader"));
 
     if (glDeleteShader == nullptr) {
-        fail("glDeleteShader failed.");
-        return false;
+        return fail("glDeleteShader failed.");
     }
 
     glCreateProgram = reinterpret_cast<PFNGLCREATEPROGRAMPROC>(wglGetProcAddress("glCreateProgram"));
 
     if (glCreateProgram == nullptr) {
-        fail("glCreateProgram failed.");
-        return false;
+        return fail("glCreateProgram failed.");
     }
 
     glDeleteProgram = reinterpret_cast<PFNGLDELETEPROGRAMPROC>(wglGetProcAddress("glDeleteProgram"));
 
     if (glDeleteProgram == nullptr) {
-        fail("glDeleteProgram failed.");
-        return false;
+        return fail("glDeleteProgram failed.");
     }
 
     glAttachShader = reinterpret_cast<PFNGLATTACHSHADERPROC>(wglGetProcAddress("glAttachShader"));
 
     if (glAttachShader == nullptr) {
-        fail("glAttachShader failed.");
-        return false;
+        return fail("glAttachShader failed.");
     }
 
     glLinkProgram = reinterpret_cast<PFNGLLINKPROGRAMARBPROC>(wglGetProcAddress("glLinkProgramARB"));
 
     if (glLinkProgram == nullptr) {
-        fail("glLinkProgram failed.");
-        return false;
+        return fail("glLinkProgram failed.");
     }
 
     glGetProgramiv = reinterpret_cast<PFNGLGETPROGRAMIVPROC>(wglGetProcAddress("glGetProgramiv"));
 
     if (glGetProgramiv == nullptr) {
-        fail("glGetProgramiv failed.");
-        return false;
+        return fail("glGetProgramiv failed.");
     }
 
     glGetProgramInfoLog = reinterpret_cast<PFNGLGETPROGRAMINFOLOGPROC>(wglGetProcAddress("glGetProgramInfoLog"));
 
     if (glGetProgramInfoLog == nullptr) {
-        fail("glGetProgramInfoLog failed.");
-        return false;
+        return fail("glGetProgramInfoLog failed.");
     }
 
     glDetachShader = reinterpret_cast<PFNGLDETACHSHADERPROC>(wglGetProcAddress("glDetachShader"));
 
     if (glDetachShader == nullptr) {
-        fail("glDetachShader failed.");
-        return false;
+        return fail("glDetachShader failed.");
     }
 
     glGenBuffers = reinterpret_cast<PFNGLGENBUFFERSARBPROC>(wglGetProcAddress("glGenBuffersARB"));
 
     if (glGenBuffers == nullptr) {
-        fail("glGenBuffers() failed.");
-        return false;
+        return fail("glGenBuffers() failed.");
     }
 
     glBindBuffer = reinterpret_cast<PFNGLBINDBUFFERARBPROC>(wglGetProcAddress("glBindBufferARB"));
 
     if (glBindBuffer == nullptr) {
-        fail("glBindBuffer() failed.");
-        return false;
+        return fail("glBindBuffer() failed.");
     }
 
     glBufferData = reinterpret_cast<PFNGLBUFFERDATAARBPROC>(wglGetProcAddress("glBufferDataARB"));
 
     if (glBufferData == nullptr) {
-        fail("glBufferData() failed.");
-        return false;
+        return fail("glBufferData() failed.");
     }
 
     glGenVertexArrays = reinterpret_cast<PFNGLGENVERTEXARRAYSPROC>(wglGetProcAddress("glGenVertexArrays"));
 
     if (glGenVertexArrays == nullptr) {
-        fail("glGenVertexArrays() failed.");
-        return false;
+        return fail("glGenVertexArrays() failed.");
     }
 
     glBindVertexArray = reinterpret_cast<PFNGLBINDVERTEXARRAYPROC>(wglGetProcAddress("glBindVertexArray"));
 
     if (glBindVertexArray == nullptr) {
-        fail("glBindVertexArray() failed.");
-        return false;
+        return fail("glBindVertexArray() failed.");
     }
 
     glVertexAttribPointer = reinterpret_cast<PFNGLVERTEXATTRIBPOINTERPROC>(wglGetProcAddress("glVertexAttribPointer"));
 
     if (glVertexAttribPointer == nullptr) {
-        fail("glVertexAttribPointer() failed.");
-        return false;
+        return fail("glVertexAttribPointer() failed.");
     }
 
     glDeleteVertexArrays = reinterpret_cast<PFNGLDELETEVERTEXARRAYSPROC >(
             wglGetProcAddress("glDeleteVertexArrays"));
 
     if (glDeleteVertexArrays == nullptr) {
-        fail("glDeleteVertexArrays() failed.");
-        return false;
+        return fail("glDeleteVertexArrays() failed.");
     }
 
     glUseProgram = reinterpret_cast<PFNGLUSEPROGRAMPROC>(wglGetProcAddress("glUseProgram"));
 
     if (glUseProgram == nullptr) {
-        fail("glUseProgram() failed.");
-        return false;
+        return fail("glUseProgram() failed.");
     }
 
     glEnableVertexAttribArray = reinterpret_cast<PFNGLENABLEVERTEXATTRIBARRAYPROC>(
             wglGetProcAddress("glEnableVertexAttribArray"));
 
     if (glEnableVertexAttribArray == nullptr) {
-        fail("glEnableVertexAttribArray() failed.");
-        return false;
+        return fail("glEnableVertexAttribArray() failed.");
     }
 
     glDisableVertexAttribArray = reinterpret_cast<PFNGLDISABLEVERTEXATTRIBARRAYPROC>(
             wglGetProcAddress("glDisableVertexAttribArray"));
 
     if (glDisableVertexAttribArray == nullptr) {
-        fail("glDisableVertexAttribArray() failed.");
-        return false;
+        return fail("glDisableVertexAttribArray() failed.");
     }
 
     return true;
